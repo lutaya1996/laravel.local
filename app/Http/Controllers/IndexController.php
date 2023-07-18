@@ -9,7 +9,7 @@ class IndexController extends Controller
 {
     public function show()
     {
-        return view('index', ['title' => 'PetLover - Главная страница']);
+        return view('home.index', ['title' => 'PetLover - Главная страница']);
     }
 
 }

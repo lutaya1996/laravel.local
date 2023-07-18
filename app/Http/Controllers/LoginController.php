@@ -6,11 +6,8 @@ use Illuminate\Http\Request;
 
 class LoginController
 {
-    public function form(Request $request)
+    public function index(Request $request)
     {
-        if($request->has('email') and $request->has('password'))  {
-
-        }
-        return view('login', ['title'=>'Login', 'email'=>$request->input('email'), 'password'=>$request->input('password')]);
+        return view('login.index', ['title'=>'Login']);
     }
 }

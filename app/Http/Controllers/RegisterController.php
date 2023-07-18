@@ -3,14 +3,8 @@ namespace App\Http\Controllers;
 
 class RegisterController
 {
-    public function show()
+    public function index()
     {
-        return view('register', ['title'=> 'Регистрация']);
+        return view('register.index', ['title'=>'Регистрация']);
     }
-
-    public function register()
-    {
-
-    }
-
 }

@@ -7,18 +7,18 @@
         <div class="row pt-5">
             <div class="col-lg-8">
                 <div class="d-flex flex-column text-left mb-4">
-                    <h4 class="text-secondary mb-3"><?= $variableProvider->getVariable("BLOG_HEAD") ?></h4>
-                    <h1 class="mb-3"><?= $articleProvider->getArticleByUrlKey("primary")["title"] ?></h1>
+                    <h4 class="text-secondary mb-3">"BLOG_HEA</h4>
+                    <h1 class="mb-3">{!! $primaryArticle->title!!}</h1>
                     <div class="d-index-flex mb-2">
-                        <span class="mr-3"><i class="fa fa-user text-muted"></i> <?= $articleProvider->getArticleByUrlKey("primary")["author"] ?></span>
-                        <span class="mr-3"><i class="fa fa-folder text-muted"></i> <?= $articleProvider->getArticleByUrlKey("primary")["tag"] ?></span>
-                        <span class="mr-3"><i class="fa fa-comments text-muted"></i> <?=3?></span>
+                        <span class="mr-3"><i class="fa fa-user text-muted"></i> {{$primaryArticle->author->name}}</span>
+                        <span class="mr-3"><i class="fa fa-folder text-muted"></i> {{$primaryArticle->category->name}}</span>
+                        <span class="mr-3"><i class="fa fa-comments text-muted"></i>{{$primaryArticle->comments->count()}}</span>
                     </div>
                 </div>
 
                 <div class="mb-5">
-                    <img class="img-fluid w-100 mb-4" src="<?= $articleProvider->getArticleByUrlKey("primary")["image"] ?>" alt="Image">
-                    <p><?= $articleProvider->getArticleByUrlKey("primary")["content"] ?></p>
+                    <img class="img-fluid w-100 mb-4" src="{{$primaryArticle->image->path}}" alt="Image">
+                    <p>{!! $primaryArticle->content!!}</p>
                 </div>
 
                 <!-- Main Article End-->
@@ -27,10 +27,10 @@
 
                 <!--Author of article start-->
                 <div class="media bg-light mb-5 p-4 p-md-5">
-                    <img src="<?= ($authors[0])->image; ?>" alt="Image" class="img-fluid mr-4 mt-1" style="width: 80px;">
+                    <img src="{{$primaryArticle->author->image_path}}" alt="Image" class="img-fluid mr-4 mt-1" style="width: 80px;">
                     <div class="media-body">
-                        <h5 class="mb-3"><?= ($authors[0])->name; ?></h5>
-                        <p class="m-0"><?= ($authors[0])->profession; ?></p>
+                        <h5 class="mb-3">{{$primaryArticle->author->name}}</h5>
+                        <p class="m-0">{{$primaryArticle->author->profession}}</p>
                     </div>
                 </div>
                 <!--Author of article End-->
@@ -64,7 +64,7 @@
                 </div>
 
                 <!--Comment Form Start-->
-                <?php require_once "src/Views/components/forms/commentForm.php" ?>
+
             </div>
             <!--Comment Form End-->
 
@@ -73,7 +73,7 @@
 
             <!-- Меню справа Start -->
 
-            <?php require_once "src/Views/components/sideBar.php" ?>
+
         </div>
     </div>
 

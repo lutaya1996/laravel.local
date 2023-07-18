@@ -17,7 +17,7 @@
                     <div class="card border-0 mb-2">
                         <img class="card-img-top" src="{{$article->image->path}}" alt="">
                         <div class="card-body bg-light p-4">
-                            <h4 class="card-title text-truncate">{{$article->title}}</h4>
+                            <h4 class="card-title text-truncate">{!! $article->title !!}</h4>
                             <div class="d-flex mb-3">
                                 <small class="mr-2"><i class="fa fa-user text-muted"></i> {{$article->author->name}}
                                 </small>

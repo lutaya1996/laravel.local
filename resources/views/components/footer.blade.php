@@ -21,6 +21,8 @@
                     </div>
                 </div>
 
+                @include('components.menus.footer-menu')
+
             </div>
         </div>
     </div>
@@ -37,14 +39,3 @@
 <!-- Footer End -->
 
 
-<!-- Back to Top -->
-<a href="#" class="btn btn-lg btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
-
-<!-- JavaScript Libraries -->
-
-@include('layouts.styles')
-
-</body>
-
-</html>
