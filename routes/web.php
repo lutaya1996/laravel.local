@@ -1,17 +1,22 @@
 <?php
 
-use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [IndexController::class, 'show']);
+Route::get('/', [IndexController::class, 'show'])->name('home');
 
-Route::get('/articles', [ArticleController::class, 'showAll']);
+Route::get('/register', [RegisterController::class, 'index'])->name('register.index');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
-Route::get('/articles/{slug}', [ArticleController::class, 'showOne',]);
+Route::get('/login', [LoginController::class, 'index'])->name('login.index');
+Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 
-Route::match(['get', 'post'], '/login', [LoginController::class, 'form']);
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog{article}', [BlogController::class, 'show'])->name('blog.show');
 
-Route::match(['get', 'post'], '/register', [RegisterController::class, 'form']);
+
+
+
