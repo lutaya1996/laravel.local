@@ -31,6 +31,7 @@
 
     <!-- Pricing Plan Start -->
 
+    @include('components.pricing-plan')
 
         <!-- Pricing Plan End -->
 

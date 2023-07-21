@@ -2,19 +2,21 @@
 <html lang="en">
 
 <head>
+    <meta charset="utf-8">
     <title>{{$title}}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="description">
 
-    @include('components.styles')
+    @include('includes.styles')
 
 </head>
 <body>
 
-@include('components.header')
+@include('includes.header')
 
 @yield('content')
 
-@include('components.footer')
+@include('includes.footer')
 
 
 <!-- Back to Top -->
@@ -22,7 +24,7 @@
 
 <!-- JavaScript Libraries -->
 
-@include('components.styles')
+@include('includes.scripts')
 
 </body>
 

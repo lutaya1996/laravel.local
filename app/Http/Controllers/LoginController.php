@@ -8,6 +8,6 @@ class LoginController
 {
     public function index(Request $request)
     {
-        return view('login.index', ['title'=>'Login']);
+        return view('login.index', ['title'=>'Login', 'request'=>$request]);
     }
 }

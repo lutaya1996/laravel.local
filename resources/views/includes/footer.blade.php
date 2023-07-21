@@ -1,4 +1,3 @@
-
 <!-- Footer Start -->
 <div class="container-fluid bg-dark text-white mt-5 py-5 px-sm-3 px-md-5">
     <div class="row pt-5">
@@ -14,14 +13,18 @@
                     <p><i class="fa fa-phone-alt mr-2"></i>8-800-55-35-35</p>
                     <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
                     <div class="d-flex justify-content-start mt-4">
-                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0"
+                           style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0"
+                           style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0"
+                           style="width: 36px; height: 36px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light rounded-circle text-center mr-2 px-0"
+                           style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
 
-                @include('components.menus.footer-menu')
+                @include('includes.menus.footer-menu')
 
             </div>
         </div>
@@ -31,7 +34,7 @@
     <div class="row">
         <div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
             <p class="m-0 text-white">
-                &copy; <a class="text-white font-weight-bold" href="#">PetLover</a>. Все права защищены.
+                <a class="text-white font-weight-bold" href="{{route('home')}}">PetLover</a>. Все права защищены.
             </p>
         </div>
     </div>

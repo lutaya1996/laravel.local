@@ -2,43 +2,100 @@
 
 @section('content')
 
+    <section>
+        <!-- Contact Start -->
 
-    <!-- Contact Start -->
-    <div class="container-fluid pt-5">
-        <div class="d-flex flex-column text-center mb-5 pt-5">
-            <h1 class="text-secondary mb-3">Остались вопросы?</h1>
-            <h4 class="display-4 m-0">Свяжитесь <span class="text-primary"> с нами</span></h4>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-8 mb-5">
-                <div class="contact-form">
-                    <div id="success"></div>
-                    <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                        <div class="control-group">
-                            <input type="text" class="form-control p-4" id="name" placeholder="Ваше имя" required="required" data-validation-required-message="Please enter your name" />
-                            <p class="help-block text-danger"></p>
+        <x-forms.container>
+
+            <div class="row justify-content-center">
+
+                <div class="col-12 col-sm-8 mb-5">
+
+                    <div class="form">
+
+                        <div id="success">
+
+                            <x-forms.form-header>
+
+                                <x-forms.form-title>
+
+                                    {{__('Остались вопросы?')}}
+
+                                </x-forms.form-title>
+
+
+                                <x-slot name="second_title">
+
+                                    Свяжитесь <span class="text-primary"> с нами</span>
+
+                                </x-slot>
+
+                            </x-forms.form-header>
+
+                            <x-forms.form-body>
+
+                                <x-forms.form name="contacts" method="post" action="">
+
+
+                                    <div class="control-group">
+
+                                        <input type="email" class='form-control p-4 mb-3' name="email"
+                                               value="{{$email ?? ""}}" placeholder="Ваш Email" required="required"
+                                               data-validation-required-message="Пожалуйста, введите Ваш email"
+                                               autofocus/>
+
+                                    </div>
+
+                                    <div class="control-group">
+
+                                        <input type="name" class='form-control p-4 mb-3' name="name"
+                                               value="{{$name ?? ""}}" placeholder="Ваше имя" required="required"
+                                               data-validation-required-message="Пожалуйста, введите Ваше имя"/>
+
+                                    </div>
+
+                                    <div class="control-group">
+
+                                        <input type="telephone" class='form-control p-4 mb-3' name="telephone"
+                                               value="{{$telephone ?? ""}}" placeholder="Ваш номер" required="required"
+                                               data-validation-required-message="Пожалуйста, введите Ваш контактный номер"/>
+
+                                    </div>
+
+                                    <div class="control-group">
+
+                                    <textarea class="form-control p-4" rows="6" name="message" placeholder="Сообщение"
+                                              required="required"
+                                              data-validation-required-message="Пожалуйста, опишите Ваш вопрос"></textarea>
+
+                                    </div>
+
+                                    <div class="text-center">
+
+                                        <x-forms.button type="submit">
+
+                                            {{__('Войти')}}
+
+                                        </x-forms.button>
+
+                                    </div>
+
+                                </x-forms.form>
+
+                            </x-forms.form-body>
+
                         </div>
-                        <div class="control-group">
-                            <input type="email" class="form-control p-4" id="email" placeholder="Ваш Email" required="required" data-validation-required-message="Please enter your email" />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <input type="text" class="form-control p-4" id="number" placeholder="Телефон" required="required" data-validation-required-message="Please enter a number" />
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="control-group">
-                            <textarea class="form-control p-4" rows="6" id="message" placeholder="Сообщение" required="required" data-validation-required-message="Please enter your message"></textarea>
-                            <p class="help-block text-danger"></p>
-                        </div>
-                        <div class="text-center">
-                            <button class="btn btn-primary py-3 px-5" type="submit" id="sendMessageButton">Отправить</button>
-                        </div>
-                    </form>
+
+                    </div>
+
                 </div>
+
             </div>
 
-        </div>
-    </div>
-    <!-- Contact End -->
+        </x-forms.container>
 
-@stop
+    </section>
+
+@endsection
+
+

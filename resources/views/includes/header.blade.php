@@ -1,9 +1,8 @@
-
 <!-- Topbar Start -->
 <div class="container-fluid">
     <div class="row py-3 px-lg-5">
         <div class="col-lg-4">
-            <a href="" class="navbar-brand d-none d-lg-block">
+            <a href="{{route('home')}}" class="navbar-brand d-none d-lg-block">
                 <h1 class="m-0 display-5 text-capitalize"><span class="text-primary">Pet</span>Lover</h1>
             </a>
         </div>
@@ -31,13 +30,14 @@
 <div class="container-fluid p-0">
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
         <a href="" class="navbar-brand d-block d-lg-none">
-            <h1 class="m-0 display-5 text-capitalize font-italic text-white"><span class="text-primary">Safety</span>First</h1>
+            <h1 class="m-0 display-5 text-capitalize font-italic text-white"><span class="text-primary">Pet</span>Lover
+            </h1>
         </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        @include('components.menus.main-menu')
+        @include('includes.menus.main-menu')
 
     </nav>
 </div>

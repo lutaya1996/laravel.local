@@ -18,14 +18,14 @@
         <h3 class="mb-4">Категории</h3>
         <ul class="list-group">
 
-            <?php //foreach ($obj->dataProvider->getCategories() as $category => $count) : ?><!---->
+          "@foreach($category)
 
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <?php //= $category ?><!---->
+                {{$category}}
                 <span class="badge badge-primary badge-pill"><?php //= $count ?><!----></span>
             </li>
 
-            <?php //endforeach; ?><!---->
+            @endforeach
 
         </ul>
     </div>
