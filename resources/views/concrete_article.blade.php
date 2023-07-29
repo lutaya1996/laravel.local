@@ -1,7 +1,6 @@
-@extends('layouts.layout')
+@extends('components.layouts.base')
 
 @section('content')
-
 
     <!-- Article Start -->
     <div class="container py-5">
@@ -53,7 +52,7 @@
             <!-- Меню справа Start -->
             sidebar
 
-                <!-- Меню справа End-->
+            <!-- Меню справа End-->
         </div>
     </div>
 

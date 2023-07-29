@@ -5,7 +5,7 @@
         <a href = '{{route('home')}}'  class="nav-item nav-link {{active_link('home')}}">Главная</a>
         <a href = '{{route('catalog')}}' class="nav-item nav-link {{active_link('catalog')}}">Услуги и цены </a>
         <a href = '{{route('contacts')}}'  class="nav-item nav-link {{active_link('contacts')}}">Контакты</a>
-        <a href = '{{route('blog.index')}}' class="nav-item nav-link {{active_link('blog.index')}}">Наш блог </a>
+        <a href = '{{route('blog.index')}}' class="nav-item nav-link {{active_link('blog*')}}">Наш блог </a>
     </div>
 
 

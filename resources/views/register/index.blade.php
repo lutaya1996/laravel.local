@@ -1,4 +1,5 @@
-@extends('layouts.layout')
+@extends('components.layouts.base')
+
 @section('content')
 
     <!-- Register Form Start -->
@@ -32,7 +33,7 @@
 
                                         <label for="name" style="color: red">*</label>
 
-                                        <input type="name" class = 'form-control p-4 mb-3'  name="name"
+                                        <input type="name" class='form-control p-4 mb-3' name="name"
                                                value="{{$name ?? ""}}" placeholder="Ваше имя" required="required"
                                                data-validation-required-message="Пожалуйста, введите Ваше имя"
                                                autofocus/>
@@ -43,7 +44,7 @@
 
                                         <label for="email" style="color: red">*</label>
 
-                                        <input type="email" class = 'form-control p-4 mb-3'  name="email"
+                                        <input type="email" class='form-control p-4 mb-3' name="email"
                                                value="{{$email ?? ""}}" placeholder="Ваш Email" required="required"
                                                data-validation-required-message="Пожалуйста, введите Ваш email"
                                                autofocus/>
@@ -54,7 +55,7 @@
 
                                         <label for="password" style="color: red">*</label>
 
-                                        <input type="password" class = 'form-control p-4 mb-3' name="password"
+                                        <input type="password" class='form-control p-4 mb-3' name="password"
                                                value="{{$password ?? ""}}" placeholder="Пароль" required="required"
                                                data-validation-required-message="Пожалуйста, введите Ваш пароль"/>
 
@@ -64,8 +65,9 @@
 
                                         <label for="confirm" style="color: red">*</label>
 
-                                        <input type="password" class = 'form-control p-4 mb-3' name="confirm"
-                                               value="{{$confirm?? ""}}" placeholder="Подтвердите пароль" required="required"
+                                        <input type="password" class='form-control p-4 mb-3' name="confirm"
+                                               value="{{$confirm?? ""}}" placeholder="Подтвердите пароль"
+                                               required="required"
                                                data-validation-required-message="Пожалуйста, введите Ваш пароль"/>
 
                                     </div>

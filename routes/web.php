@@ -23,7 +23,7 @@ Route::get('/catalog', [CatalogController::class,'index'])->name('catalog');
 Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
-Route::get('/blog{article}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 
 

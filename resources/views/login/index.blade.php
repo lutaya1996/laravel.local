@@ -1,10 +1,10 @@
-@extends('layouts.layout')
+@extends('components.layouts.base')
 
 @section('content')
 
     <!-- Login Form Start -->
 
-       <x-login.form/>
+    <x-login.form/>
 
     <!-- Login Form End -->
 

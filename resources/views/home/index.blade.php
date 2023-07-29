@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('components.layouts.base')
 @section('content')
 
     <!-- Carousel Start -->
@@ -8,18 +8,18 @@
 
                 @foreach($slides as $slide)
 
-                <div class="carousel-item {{$slide->show_on_first ? 'active' : ''}}"  >
-                    <img class="w-100" src="{{$slide->image->path}}" alt="Image">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                        <div class="p-3" style="max-width: 900px;">
-                            <h3 class="text-white mb-3 d-none d-sm-block">{{$slide->first_head}}</h3>
-                            <h1 class="display-3 text-white mb-3">{{$slide->second_head}}</h1>
-                            <h5 class="text-white mb-3 d-none d-sm-block"></h5>
+                    <div class="carousel-item {{$slide->show_on_first ? 'active' : ''}}">
+                        <img class="w-100" src="{{$slide->image->path}}" alt="Image">
+                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                            <div class="p-3" style="max-width: 900px;">
+                                <h3 class="text-white mb-3 d-none d-sm-block">{{$slide->first_head}}</h3>
+                                <h1 class="display-3 text-white mb-3">{{$slide->second_head}}</h1>
+                                <h5 class="text-white mb-3 d-none d-sm-block"></h5>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-            @endforeach
+                @endforeach
 
             </div>
             <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
@@ -41,9 +41,12 @@
         <div class="row py-5">
             <div class="col-lg-7 pb-5 pb-lg-0 px-3 px-lg-5">
                 <h4 class="text-secondary mb-3">О нас</h4>
-                <h1 class="display-4 mb-4"><span class="text-primary">Содержание</span> & <span class="text-secondary">Дневной уход</span></h1>
-                <h5 class="text-muted mb-3">Мы оказываем комплексные услуги вашим домашним любимцам: собакам и кошкам. </h5>
-                <p class="mb-4">Мы можем предложить Вашим питомцам высококвалифицированную круглосуточную ветеринарную помощь, услуги по осуществлению стильных и гигиенических стрижек собак и кошек.</p>
+                <h1 class="display-4 mb-4"><span class="text-primary">Содержание</span> & <span class="text-secondary">Дневной уход</span>
+                </h1>
+                <h5 class="text-muted mb-3">Мы оказываем комплексные услуги вашим домашним любимцам: собакам и
+                    кошкам. </h5>
+                <p class="mb-4">Мы можем предложить Вашим питомцам высококвалифицированную круглосуточную ветеринарную
+                    помощь, услуги по осуществлению стильных и гигиенических стрижек собак и кошек.</p>
                 <ul class="list-inline">
                     <li>
                         <h5><i class="fa fa-check-double text-secondary mr-3"></i>Лучшие в индустрии</h5>
@@ -85,9 +88,12 @@
             <div class="col-lg-5">
                 <div class="row px-3">
                     <h4 class=" text-secondary mb-3">Уезжаете в отпуск?</h4>
-                    <h1 class="display-4 mb-4">Забронируйте номер в нашем отеле <span class="text-primary">для Вашего Питомца</span></h1>
-                    <p>Во время пребывания у нас Вашему Питомцу будет уделено самое пристальное внимание с высочайшим качеством ухода.
-                        Поскольку у нас небольшой список клиентов, мы можем предложить эту очень персонализированную услугу каждому
+                    <h1 class="display-4 mb-4">Забронируйте номер в нашем отеле <span class="text-primary">для Вашего Питомца</span>
+                    </h1>
+                    <p>Во время пребывания у нас Вашему Питомцу будет уделено самое пристальное внимание с высочайшим
+                        качеством ухода.
+                        Поскольку у нас небольшой список клиентов, мы можем предложить эту очень персонализированную
+                        услугу каждому
                         клиенту и его четвероногому члену семьи.</p>
                     <a href="{{route('catalog')}}" class="btn btn-lg btn-primary mt-3 px-4">Забронировать</a>
                 </div>
@@ -108,13 +114,13 @@
 
                 @foreach($services as $service)
 
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
-                        <h3 class="display-3 font-weight-normal text-secondary mb-3 {{$service->icon_class}}"></h3>
-                        <h3 class="mb-3">{{$service->title}}</h3>
-                        <p>{{$service->description}}</p>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                            <h3 class="display-3 font-weight-normal text-secondary mb-3 {{$service->icon_class}}"></h3>
+                            <h3 class="mb-3">{{$service->title}}</h3>
+                            <p>{{$service->description}}</p>
+                        </div>
                     </div>
-                </div>
 
                 @endforeach
 
@@ -175,23 +181,27 @@
 
             @foreach($teams as $member )
 
-            <div class="col-lg-3 col-md-6">
-                <div class="team card position-relative overflow-hidden border-0 mb-4">
-                    <img class="card-img-top" src="{{asset($member->image->path)}}" alt="">
-                    <div class="card-body text-center p-0">
-                        <div class="team-text d-flex flex-column justify-content-center bg-light">
-                            <h5>{{$member->name}}</h5>
-                            <i>{{$member->position}}</i>
-                        </div>
-                        <div class="team-social d-flex align-items-center justify-content-center bg-dark">
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-outline-primary rounded-circle text-center px-0" style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></a>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team card position-relative overflow-hidden border-0 mb-4">
+                        <img class="card-img-top" src="{{asset($member->image->path)}}" alt="">
+                        <div class="card-body text-center p-0">
+                            <div class="team-text d-flex flex-column justify-content-center bg-light">
+                                <h5>{{$member->name}}</h5>
+                                <i>{{$member->position}}</i>
+                            </div>
+                            <div class="team-social d-flex align-items-center justify-content-center bg-dark">
+                                <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+                                   style="width: 36px; height: 36px;" href="#"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+                                   style="width: 36px; height: 36px;" href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-outline-primary rounded-circle text-center mr-2 px-0"
+                                   style="width: 36px; height: 36px;" href="#"><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-outline-primary rounded-circle text-center px-0"
+                                   style="width: 36px; height: 36px;" href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
             @endforeach
 
@@ -211,16 +221,17 @@
 
                 @foreach($testimonials as $testimonial)
 
-                <div class="bg-white mx-3 p-4">
-                    <div class="d-flex align-items-end mb-3 mt-n4 ml-n4">
-                        <img class="img-fluid" src="{{asset($testimonial->image->path)}}" style="width: 80px; height: 80px;" alt="">
-                        <div class="ml-3">
-                            <h5>{{$testimonial->name}}</h5>
-                            <i>{{$testimonial->profession}}</i>
+                    <div class="bg-white mx-3 p-4">
+                        <div class="d-flex align-items-end mb-3 mt-n4 ml-n4">
+                            <img class="img-fluid" src="{{asset($testimonial->image->path)}}"
+                                 style="width: 80px; height: 80px;" alt="">
+                            <div class="ml-3">
+                                <h5>{{$testimonial->name}}</h5>
+                                <i>{{$testimonial->profession}}</i>
+                            </div>
                         </div>
+                        <p class="m-0">{{$testimonial->text}}</p>
                     </div>
-                    <p class="m-0">{{$testimonial->text}}</p>
-                </div>
 
                 @endforeach
 
@@ -241,21 +252,24 @@
 
             @foreach($articles as $article)
 
-            <div class="col-lg-4 mb-4">
-                <div class="card border-0 mb-2">
-                    <img class="card-img-top" src="{{asset($article->image->path)}}" alt="">
-                    <div class="card-body bg-light p-4">
-                        <h4 class="card-title text-truncate"></h4>
-                        <div class="d-flex mb-3">
-                            <small class="mr-2"><i class="fa fa-user text-muted"></i>{{$article->author->name}}</small>
-                            <small class="mr-2"><i class="fa fa-folder text-muted"></i>{{$article->category->name}} </small>
-                            <small class="mr-2"><i class="fa fa-comments text-muted"></i>{{$article->comments->count()}}</small>
+                <div class="col-lg-4 mb-4">
+                    <div class="card border-0 mb-2">
+                        <img class="card-img-top" src="{{asset($article->image->path)}}" alt="">
+                        <div class="card-body bg-light p-4">
+                            <h4 class="card-title text-truncate"></h4>
+                            <div class="d-flex mb-3">
+                                <small class="mr-2"><i class="fa fa-user text-muted"></i>{{$article->author->name}}
+                                </small>
+                                <small class="mr-2"><i class="fa fa-folder text-muted"></i>{{$article->category->name}}
+                                </small>
+                                <small class="mr-2"><i
+                                        class="fa fa-comments text-muted"></i>{{$article->comments->count()}}</small>
+                            </div>
+                            <p>{!!mb_substr($article->content, 0, 150)!!}</p>
+                            <a class="font-weight-bold" href="">Читать далее</a>
                         </div>
-                        <p>{!!mb_substr($article->content, 0, 150)!!}</p>
-                        <a class="font-weight-bold" href="">Читать далее</a>
                     </div>
                 </div>
-            </div>
 
             @endforeach
 

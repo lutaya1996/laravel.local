@@ -1,7 +1,6 @@
-@extends('layouts.layout')
+@extends('components.layouts.base')
 
 @section('content')
-
 
     <!-- Services Start -->
     <div class="container-fluid bg-light pt-5">
@@ -14,13 +13,13 @@
 
                 @foreach ($services as $service)
 
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
-                        <h3 class="{{$service->icon_class}} display-3 font-weight-normal text-secondary mb-3"></h3>
-                        <h3 class="mb-3"><?= $service->title ?></h3>
-                        <p><?= $service->description ?></p>
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
+                            <h3 class="{{$service->icon_class}} display-3 font-weight-normal text-secondary mb-3"></h3>
+                            <h3 class="mb-3"><?= $service->title ?></h3>
+                            <p><?= $service->description ?></p>
+                        </div>
                     </div>
-                </div>
 
                 @endforeach
 
@@ -33,7 +32,7 @@
 
     @include('components.pricing-plan')
 
-        <!-- Pricing Plan End -->
+    <!-- Pricing Plan End -->
 
     <!-- Features Start -->
     <div class="container">
@@ -50,7 +49,8 @@
                 </p>
                 Если вам нужна качественная гостиница для животных в Москве или в другом городе с безупречной
                 репутацией, отличным сервисом и любящей животных командой котонянь, обращайтесь к услугам PetLover
-                - лучшего отеля для животных в столице с видеонаблюдением. 24 часа в сутки вы сможете наблюдать за своим ненаглядным питомцем и
+                - лучшего отеля для животных в столице с видеонаблюдением. 24 часа в сутки вы сможете наблюдать за своим
+                ненаглядным питомцем и
                 общаться с ним посредством камеры.
                 </p>
                 <div class="row py-2">
@@ -84,4 +84,4 @@
     </div>
     <!-- Features End -->
 
-@stop
+@endsection
