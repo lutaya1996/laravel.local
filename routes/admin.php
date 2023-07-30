@@ -3,23 +3,27 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CommentController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth')->group(function () {
+//Route::prefix('admin')->middleware('auth')->group(function () {
 
-    Route::redirect('/admin', '/admin/articles')->name('admin');
+Route::prefix('admin')->group(function () {
 
-    Route::get('/articles', [ArticleController::class, 'index'])->name('articles.index');
+    Route::redirect('/', '/admin/articles')->name('admin');
 
-    Route::get('/articles/create', [ArticleController::class, 'create'])->name('articles.create');
 
-    Route::post('/articles', [ArticleController::class, 'store'])->name('articles.store');
+    Route::get('/articles', [ArticleController::class, 'index'])->name('admin.articles');
 
-    Route::get('/articles/{slug}', [ArticleController::class, 'create'])->name('articles.show');
+    Route::get('/articles/create', [ArticleController::class, 'create'])->name('admin.articles.create');
 
-    Route::get('/articles/{article}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
+    Route::post('/articles', [ArticleController::class, 'store'])->name('admin.articles.store');
 
-    Route::put('/articles/{article}', [ArticleController::class, 'update'])->name('articles.update');
+    Route::get('/articles/{slug}', [ArticleController::class, 'show'])->name('admin.articles.show');
 
-    Route::get('/articles/{article}', [ArticleController::class, 'delete'])->name('articles.delete');
+    Route::get('/articles/{slug}/edit', [ArticleController::class, 'edit'])->name('admin.articles.edit');
+
+    Route::put('/articles/{slug}', [ArticleController::class, 'update'])->name('admin.articles.update');
+
+    Route::delete('/articles/{slug}', [ArticleController::class, 'delete'])->name('admin.articles.delete');
+
 
 
     Route::get('/articles/{article}/comments', [CommentController::class, 'index'])->name('comments.index');

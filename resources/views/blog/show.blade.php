@@ -1,14 +1,25 @@
-@extends('components.layouts.base')
+@extends('layouts.base')
 
 @section('content')
 
     <!-- Main Article Start -->
     <div class="container py-5">
+
+
+        <a href="{{route('blog.index')}}" class="text-left mb-2 font-weight-bold">
+
+            {{__('Назад')}}
+
+        </a>
+
         <div class="row pt-5">
             <div class="col-lg-8">
+
+
                 <div class="d-flex flex-column text-left mb-4">
-                    <h4 class="text-secondary mb-3">{{$title}}</h4>
-                    <h1 class="mb-3">{!! $article->title!!}</h1>
+                    <h1 class="text-secondary mb-3">{{$title}}</h1>
+                    <h2 class="mb-3">{!! $article->title!!}</h2>
+
                     <div class="d-index-flex mb-2">
                         <span class="mr-3"><i class="fa fa-user text-muted"></i> {{$article->author->name}}</span>
                         <span class="mr-3"><i class="fa fa-folder text-muted"></i> {{$article->category->name}}</span>

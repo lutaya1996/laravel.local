@@ -6,10 +6,26 @@
 
         <!-- Blog Start -->
         <div class="container pt-5">
-            <div class="d-flex flex-column text-center mb-5 pt-5">
+            <div class="d-flex flex-column text-center mb-3 pt-3">
                 <h1 class="text-secondary mb-3">{{__('Наш блог')}}</h1>
                 <h2 class="mb-3">{{__('О питомцах')}}</h2>
+
+
+                <div class="text-right mb-3">
+
+                   <a href="{{route('admin.articles.create')}}"><button   class="btn btn-secondary text-right">
+
+                           {{__('Создать статью')}}
+
+                       </button></a>
+
+                </div>
+
+
             </div>
+
+
+
             <div class="row pb-3">
 
                 @foreach ($articles as $article)
@@ -32,7 +48,14 @@
                                 <p>{{mb_substr($article->content, 0, 150)}}</p>
 
                                 <div>
-                                    <a class="font-weight-bold" href="{{route('blog.show', $article->slug)}}">Читать
+
+                                    <a class="font-weight-bold mb-3" href="{{route('admin.articles.edit', $article->slug)}}">Редактировать
+                                        статью</a>
+
+                                </div>
+
+                                <div>
+                                    <a class="font-weight-bold text-secondary mb-3" href="{{route('admin.articles.show', $article->slug)}}">Читать
                                         статью</a>
                                 </div>
                             </div>

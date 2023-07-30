@@ -1,4 +1,4 @@
-@extends('components.layouts.base')
+@extends('layouts.base')
 @section('content')
 
     <!-- Carousel Start -->

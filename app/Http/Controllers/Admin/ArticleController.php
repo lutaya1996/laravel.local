@@ -10,29 +10,38 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        $articles = Article::paginate(3);
-        return view('articles', [ 'articles'=> $articles, 'title'=>'Мои статьи']);
+        $articles = Article::all();
+
+        return view('admin.articles.index', [ 'articles'=> $articles, 'title'=>'Мои статьи']);
     }
     public  function show($slug)
     {
         $article = Article::where('slug', $slug)->first();
-        return view('concrete_article', ['article'=> $article, 'title'=>'Читаем статью']);
+
+        $author = $article->author;
+
+        return view('admin.articles.show', ['article'=> $article,'author'=>$author, 'title'=>'Читаем статью']);
     }
     public function create()
     {
-        return "aricle create-forma";
+
+        return  view('admin.articles.create', ['title'=>'Создаем статью']);
+
     }
     public function store()
     {
         return "store ppost";
     }
-    public function edit($article)
+    public function edit($slug)
     {
-        return 'edit 1 photo';
+
+        $article = Article::where('slug', $slug)->first();
+
+        return view('admin.articles.edit', ['article'=> $article, 'title'=>'Редактируем статью']);
     }
-    public function update($article)
+    public function update($slug)
     {
-        return 'update 1 photo';
+
     }
     public function delete($article)
     {
