@@ -5,22 +5,46 @@
     <section>
 
         <!-- Blog Start -->
-        <div class="container pt-5">
-            <div class="d-flex flex-column text-center mb-5 pt-5">
-                <h1 class="text-secondary mb-3">{{__('Наш блог')}}</h1>
-                <h2 class="mb-3">{{__('О питомцах')}}</h2>
-            </div>
+
+        <x-container>
+
+            <x-title class="text-center mb-5">
+
+                <x-slot name="first_head">
+
+                    {{__('Наш блог')}}
+
+                </x-slot>
+
+                <x-slot name="second_head">
+
+                    {{__('О питомцах')}}
+
+                </x-slot>
+
+            </x-title>
+
             <div class="row pb-3">
 
                 @foreach ($articles as $article)
 
-                    <div class="col-lg-4 mb-4">
-                        <div class="card border-0 mb-2">
-                            <img class="card-img-top" src="{{asset($article->image->path)}}" alt="">
-                            <div class="card-body bg-light p-4">
-                                <h4 class="card-title text-truncate">{!! $article->title !!}</h4>
+                    <x-card.index>
+
+                        <x-card.border class="mb-2">
+
+                            <x-card.img src="{{asset($article->image->path)}}"/>
+
+                            <x-card.body class="bg-light p-4">
+
+                                <x-card.title>
+
+                                    {!! $article->title !!}
+
+                                </x-card.title>
+
                                 <div class="d-flex mb-3">
-                                    <small class="mr-2"><i class="fa fa-user text-muted"></i> {{$article->author->name}}
+                                    <small class="mr-2"><i
+                                            class="fa fa-user text-muted"></i> {{$article->author->name}}
                                     </small>
                                     <small class="mr-2"><i
                                             class="fa fa-folder text-muted"></i> {{$article->category->name}}
@@ -29,21 +53,29 @@
                                             class="fa fa-comments text-muted"></i> {{$article->comments->count()}}
                                     </small>
                                 </div>
+
                                 <p>{{mb_substr($article->content, 0, 150)}}</p>
 
-                                <div>
-                                    <a class="font-weight-bold" href="{{route('blog.show', $article->slug)}}">Читать
-                                        статью</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                                <x-link href="{{route('blog.show', $article->slug)}}">
+
+                                    {{__('Читать статью')}}
+
+                                </x-link>
+
+
+                            </x-card.body>
+
+                        </x-card.border>
+
+                    </x-card.index>
 
                 @endforeach
 
-
             </div>
-        </div>
+
+
+        </x-container>
 
 
         <!-- Blog End -->

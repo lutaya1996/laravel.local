@@ -16,14 +16,8 @@ class IndexController extends Controller
 
     public function show(Request $request)
     {
-        $slides = Slide::all();
-        $testimonials = Testimonial::all();
-        $services = Service::all();
-        $teams = Team::all();
-        $articles = Article::orderBy('id', 'desc')->limit(3)->get();
 
-        return view('home.index', ['title' => 'PetLover - Главная страница', 'articles' => $articles,
-            'slides' => $slides, 'testimonials' => $testimonials, 'services' => $services, 'teams' => $teams, 'request'=>$request]);
+        return view('home.index', ['title' => 'PetLover - Главная страница', ]);
     }
 
 }

@@ -7,6 +7,6 @@ class ContactController extends Controller
 {
  public function index(Request $request)
  {
-     return view('contacts.index', ['title'=>'Contacts', 'request'=>$request]);
+     return view('contact.index', ['title'=>'Contacts', 'request'=>$request]);
  }
 }

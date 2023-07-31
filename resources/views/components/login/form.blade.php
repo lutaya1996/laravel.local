@@ -1,6 +1,6 @@
 <section>
 
-    <x-forms.container>
+    <x-form.container>
 
         <div class="row justify-content-center">
 
@@ -10,19 +10,19 @@
 
                     <div id="success">
 
-                        <x-forms.form-header>
+                        <x-form.header>
 
-                            <x-forms.form-title>
+                            <x-form.title>
 
                                 {{__('Авторизация')}}
 
-                            </x-forms.form-title>
+                            </x-form.title>
 
-                        </x-forms.form-header>
+                        </x-form.header>
 
-                        <x-forms.form-body>
+                        <x-form.body>
 
-                            <x-forms.form name="login" method="post" action="{{route('login.store')}}">
+                            <x-form.index name="login" method="post" action="{{route('login.store')}}">
 
                                 <div class="control-group">
 
@@ -43,17 +43,17 @@
 
                                 <div class="text-center">
 
-                                    <x-forms.button type="submit">
+                                    <x-form.button type="submit">
 
                                         {{__('Войти')}}
 
-                                    </x-forms.button>
+                                    </x-form.button>
 
                                 </div>
 
-                            </x-forms.form>
+                            </x-form.index>
 
-                        </x-forms.form-body>
+                        </x-form.body>
 
                     </div>
 
@@ -63,6 +63,6 @@
 
         </div>
 
-    </x-forms.container>
+    </x-form.container>
 
 </section>

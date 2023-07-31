@@ -6,6 +6,7 @@
 
     'type' => 'button',
 
+
 ]) }}>
 
     {{$slot}}
