@@ -7,7 +7,7 @@
     <x-container>
 
 
-        <x-link href="{{route('blog.index')}}" class="text-left mb-2">
+        <x-link href="{{route('admin.articles')}}" class="text-left mb-2">
 
             {{__('Назад')}}
 

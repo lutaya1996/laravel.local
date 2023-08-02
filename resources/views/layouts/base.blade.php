@@ -9,6 +9,7 @@
 
     @include('includes.styles')
 
+    @stack('css')
 
 </head>
 <body>
@@ -26,6 +27,8 @@
 <!-- JavaScript Libraries -->
 
 @include('includes.scripts')
+
+@stack('js')
 
 </body>
 

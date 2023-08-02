@@ -24,22 +24,27 @@
 
                             <x-form.index name="login" method="post" action="{{route('login.store')}}">
 
-                                <div class="control-group">
+                               <x-form.item>
 
-                                    <input type="email" class = 'form-control p-4 mb-3'  name="email"
-                                           value="{{$email ?? ""}}" placeholder="Ваш Email" required="required"
+                                    <x-form.input type="email" name="email"
+
+                                           :value placeholder="Ваш Email"
+
                                            data-validation-required-message="Пожалуйста, введите Ваш email"
+
                                            autofocus/>
 
-                                </div>
+                               </x-form.item>
 
-                                <div class="control-group">
+                                <x-form.item>
 
-                                    <input type="password" class = 'form-control p-4 mb-3' name="password"
-                                           value="{{$password ?? ""}}" placeholder="Пароль" required="required"
+                                    <x-form.input type="password"  name="password"
+
+                                           :value  placeholder="Пароль"
+
                                            data-validation-required-message="Пожалуйста, введите Ваш пароль"/>
 
-                                </div>
+                                </x-form.item>
 
                                 <div class="text-center">
 

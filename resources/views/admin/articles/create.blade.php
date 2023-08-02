@@ -6,7 +6,7 @@
 
         <div class="container-fluid pt-5">
 
-            <x-link href="{{route('admin.articles')}}" class="text-left mb-2 py-5 px-5">
+            <x-link href="{{route('admin.articles')}}" class="offset-1 mb-3 py-5 px-5">
 
                 {{__('Назад')}}
 
@@ -34,62 +34,89 @@
 
                         <x-form method="post" action="{{ route('admin.articles.store') }}">
 
-                            <div class="control-group">
+                            <x-form.item>
 
-                                <label for="image" class="mt-3">Ссылка на картинку</label>
+                                <x-form.label for="image" class="mt-3">
 
-                                <input type="text" class="form-control p-4 mb-3 " id="image" name="image" value="" />
+                                    {{__('Ссылка на картинку')}}
 
-                            </div>
+                                </x-form.label>
 
-                            <div class="control-group">
+                                <x-form.input id="image" name="image" :value />
 
-                                <label for="title" class="mt-3">Заголовок статьи</label>
+                            </x-form.item>
 
-                                <textarea  class="form-control p-4 mb-3 " rows="2" id="title" name="title"></textarea>
+                            <x-form.item>
 
-                            </div>
+                                <x-form.label for="title" class="mt-3">
 
-                            <div class="control-group">
+                                    {{__('Заголовок статьи')}}
 
-                                <label for="url_key" class="mt-3">url_key статьи</label>
+                                </x-form.label>
 
-                                <input type="text" class="form-control p-4 mb-3 " rows="2" id="url_key" name="slug" value="" />
+                                <x-form.textarea  class="mb-3" rows="2" id="title" name="title"></x-form.textarea>
 
-                            </div>
+                            </x-form.item>
 
-                            <div class="control-group">
+                            <x-form.item>
 
-                                <label for="content" class="mt-3">Содержание статьи</label>
+                                <x-form.label for="slug" class="mt-3">
 
-                                <input id="content" type="hidden" name="content">
+                                    {{__('url_key статьи')}}
 
-                                <trix-editor input="content"></trix-editor>
+                                </x-form.label>
 
-                            </div>
+                                <x-form.input id="slug" name="slug" :value />
 
-                            <div class="control-group">
+                            </x-form.item>
 
-                                <label for="tag" class="mt-3">Категория статьи</label>
+                            <x-form.item>
 
-                                <input type="text" class="form-control p-4 mb-3"  rows="2" id="tag" name="tag" value="" />
+                                <x-form.label for="content" class="mt-3">
 
-                            </div>
-                            <div class="control-group">
+                                    {{__('Содержание статьи')}}
 
-                                <label for="author" class="mt-3">Автор статьи</label>
+                                </x-form.label>
 
-                                <input type="text" class="form-control p-4 mb-3 " rows="2" id="author" name="author" value="" />
+                                <x-trix name="content"/>
 
-                            </div>
+                            </x-form.item>
 
-                            <div class="control-group">
+                            <x-form.item>
 
-                                <label for="published_date" class="mt-3">Дата публикации статьи</label>
+                                <x-form.label for="tag" class="mt-3">
 
-                                <input type="text" class="form-control p-4 mb-3" rows="2" id="published_date" name="published_date" value="" />
+                                    {{__('Категория статьи')}}
 
-                            </div>
+                                </x-form.label>
+
+                                <x-form.input  id="tag" name="tag" :value />
+
+                            </x-form.item>
+
+                            <x-form.item>
+
+                                <x-form.label for="author" class="mt-3">
+
+                                    {{__('Автор статьи')}}
+
+                                </x-form.label>
+
+                                <x-form.input id="author" name="author" :value />
+
+                            </x-form.item>
+
+                            <x-form.item>
+
+                                <x-form.label for="published_date" class="mt-3">
+
+                                    {{__('Дата публикации статьи')}}
+
+                                </x-form.label>
+
+                                <x-form.input   id="published_date" name="published_date" :value/>
+
+                            </x-form.item>
 
 
                             <div class="text-center">
@@ -117,18 +144,3 @@
 
 @endsection
 
-
-@once
-@push('js')
-
-    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
-
-@endpush
-
-@push('css')
-
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
-
-@endpush
-
-@endonce

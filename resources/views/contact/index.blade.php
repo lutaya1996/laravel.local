@@ -37,38 +37,47 @@
                                 <x-form.index name="contacts" method="post" action="">
 
 
-                                    <div class="control-group">
+                                    <x-form.item>
 
-                                        <input type="email" class='form-control p-4 mb-3' name="email"
-                                               value="{{$email ?? ""}}" placeholder="Ваш Email" required="required"
+                                        <x-form.input type="email" name="email"
+
+                                               :value placeholder="Ваш Email"
+
                                                data-validation-required-message="Пожалуйста, введите Ваш email"
+
                                                autofocus/>
 
-                                    </div>
+                                    </x-form.item>
 
-                                    <div class="control-group">
+                                    <x-form.item>
 
-                                        <input type="name" class='form-control p-4 mb-3' name="name"
-                                               value="{{$name ?? ""}}" placeholder="Ваше имя" required="required"
+                                        <x-form.input type="name"  name="name"
+
+                                               :value placeholder="Ваше имя"
+
                                                data-validation-required-message="Пожалуйста, введите Ваше имя"/>
 
-                                    </div>
+                                    </x-form.item>
 
-                                    <div class="control-group">
+                                    <x-form.item>
 
-                                        <input type="telephone" class='form-control p-4 mb-3' name="telephone"
-                                               value="{{$telephone ?? ""}}" placeholder="Ваш номер" required="required"
+                                        <x-form.input type="telephone"  name="telephone"
+
+                                               :value placeholder="Ваш номер"
+
                                                data-validation-required-message="Пожалуйста, введите Ваш контактный номер"/>
 
-                                    </div>
+                                    </x-form.item>
 
-                                    <div class="control-group">
+                                    <x-form.item>
 
-                                    <textarea class="form-control p-4" rows="6" name="message" placeholder="Сообщение"
-                                              required="required"
-                                              data-validation-required-message="Пожалуйста, опишите Ваш вопрос"></textarea>
+                                    <x-form.textarea  name="message"
 
-                                    </div>
+                                              data-validation-required-message="Пожалуйста, опишите Ваш вопрос">
+
+                                    </x-form.textarea>
+
+                                    </x-form.item>
 
                                     <div class="text-center">
 

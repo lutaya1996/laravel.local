@@ -3,17 +3,7 @@
 
     <div class="d-flex flex-column text-center bg-white mb-2 p-3 p-sm-5">
 
-
-        @isset($icon_class)
-
-            <h3 {{ $attributes->class(['display-3 font-weight-normal text-secondary mb-3',
-
-                                                                   $class ]) }}>
-
-            </h3>
-
-
-        @endisset
+        {{$slot}}
 
 
             @isset($title)

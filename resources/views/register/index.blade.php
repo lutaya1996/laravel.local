@@ -3,6 +3,7 @@
 @section('content')
 
     <!-- Register Form Start -->
+
     <section>
 
         <x-form.container>
@@ -31,46 +32,53 @@
 
                                     <div class="control-group">
 
-                                        <label for="name" style="color: red">*</label>
+                                        <x-form.label for="name" class="required">{{__('Ваше имя')}}</x-form.label>
 
-                                        <input type="name" class='form-control p-4 mb-3' name="name"
-                                               value="{{$name ?? ""}}" placeholder="Ваше имя" required="required"
+                                        <x-form.input type="name"  name="name"
+
+                                               :value
+
                                                data-validation-required-message="Пожалуйста, введите Ваше имя"
+
                                                autofocus/>
 
                                     </div>
 
-                                    <div class="control-group">
+                                    <x-form.item>
 
-                                        <label for="email" style="color: red">*</label>
+                                        <x-form.label for="email" class="required">{{__('Ваш Email')}}</x-form.label>
 
-                                        <input type="email" class='form-control p-4 mb-3' name="email"
-                                               value="{{$email ?? ""}}" placeholder="Ваш Email" required="required"
-                                               data-validation-required-message="Пожалуйста, введите Ваш email"
-                                               autofocus/>
+                                        <x-form.input type="email"  name="email"
 
-                                    </div>
+                                               :value
 
-                                    <div class="control-group">
+                                               data-validation-required-message="Пожалуйста, введите Ваш email"/>
 
-                                        <label for="password" style="color: red">*</label>
+                                    </x-form.item>
 
-                                        <input type="password" class='form-control p-4 mb-3' name="password"
-                                               value="{{$password ?? ""}}" placeholder="Пароль" required="required"
+                                    <x-form.item>
+
+                                        <x-form.label for="password" class="required">{{__('Пароль')}}</x-form.label>
+
+                                        <x-form.input type="password"  name="password"
+
+                                               :value
+
                                                data-validation-required-message="Пожалуйста, введите Ваш пароль"/>
 
-                                    </div>
+                                    </x-form.item>
 
-                                    <div class="control-group">
+                                    <x-form.item>
 
-                                        <label for="confirm" style="color: red">*</label>
+                                        <x-form.label for="confirm" class="required">{{__('Подтвердите пароль')}}</x-form.label>
 
-                                        <input type="password" class='form-control p-4 mb-3' name="confirm"
-                                               value="{{$confirm?? ""}}" placeholder="Подтвердите пароль"
-                                               required="required"
+                                        <x-form.input type="password"  name="confirm"
+
+                                               :value
+
                                                data-validation-required-message="Пожалуйста, введите Ваш пароль"/>
 
-                                    </div>
+                                    </x-form.item>
 
                                     <div class="text-center">
 

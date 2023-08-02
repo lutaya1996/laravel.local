@@ -17,7 +17,7 @@
 
                 <x-service.card>
 
-                    <x-slot name="icon_class"  :class = "$service->icon_class"/>
+                    <x-card.icon-class  :icon = "$service->icon_class"/>
 
                     <x-slot name="title">{{$service->title}}</x-slot>
 
