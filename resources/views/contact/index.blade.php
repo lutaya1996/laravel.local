@@ -83,7 +83,7 @@
 
                                         <x-form.button type="submit">
 
-                                            {{__('Войти')}}
+                                            {{__('Отправить сообщение')}}
 
                                         </x-form.button>
 

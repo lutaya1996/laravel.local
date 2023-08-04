@@ -20,7 +20,7 @@ class RegisterController
 
         $confirm = $request->input('confirm');
 
-        return $request->all();
+        return redirect()->route('admin.articles');
     }
 
 }

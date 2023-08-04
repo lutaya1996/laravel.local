@@ -16,6 +16,11 @@
 
 @include('includes.header')
 
+
+<x-alert type="success"/>
+
+
+
 @yield('content')
 
 @include('includes.footer')

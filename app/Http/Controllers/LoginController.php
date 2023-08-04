@@ -16,5 +16,10 @@ class LoginController
         $email = $request->input('email');
 
         $password = $request->input('password');
+
+        alert("Добро пожаловать");
+
+       return redirect()->route('admin.articles');
+
     }
 }

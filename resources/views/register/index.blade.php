@@ -36,8 +36,6 @@
 
                                         <x-form.input type="name"  name="name"
 
-                                               :value
-
                                                data-validation-required-message="Пожалуйста, введите Ваше имя"
 
                                                autofocus/>
@@ -50,8 +48,6 @@
 
                                         <x-form.input type="email"  name="email"
 
-                                               :value
-
                                                data-validation-required-message="Пожалуйста, введите Ваш email"/>
 
                                     </x-form.item>
@@ -61,8 +57,6 @@
                                         <x-form.label for="password" class="required">{{__('Пароль')}}</x-form.label>
 
                                         <x-form.input type="password"  name="password"
-
-                                               :value
 
                                                data-validation-required-message="Пожалуйста, введите Ваш пароль"/>
 
@@ -74,8 +68,6 @@
 
                                         <x-form.input type="password"  name="confirm"
 
-                                               :value
-
                                                data-validation-required-message="Пожалуйста, введите Ваш пароль"/>
 
                                     </x-form.item>
@@ -84,7 +76,7 @@
 
                                         <x-form.button type="submit">
 
-                                            {{__('Войти')}}
+                                            {{__('Зарегистрироваться')}}
 
                                         </x-form.button>
 

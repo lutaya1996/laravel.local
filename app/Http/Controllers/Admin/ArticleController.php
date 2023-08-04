@@ -44,7 +44,7 @@ class ArticleController extends Controller
 
         $published_date = $request->input('published_date');
 
-        dd($request->all());
+        return redirect()->route('admin.articles.show', ['slug' => $slug]);
 
     }
     public function edit($slug)
@@ -70,12 +70,12 @@ class ArticleController extends Controller
 
         $published_date = $request->input('published_date');
 
-        dd($request->all());
+        return redirect()->route('admin.articles.show', ['slug' => $slug]);
 
     }
     public function delete($article)
     {
-        return 'delete 1 photo';
+        return  redirect()->route('admin.articles');
     }
 
 }
