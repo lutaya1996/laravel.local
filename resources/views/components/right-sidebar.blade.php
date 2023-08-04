@@ -4,14 +4,19 @@
 <div class="col-lg-4 mt-5 mt-lg-0" xmlns="http://www.w3.org/1999/html">
 
     <div class="mb-5">
-        <form action="">
+
+        <x-form.index action="{{route('blog.index', ['search'=>request('search')])}}" >
+
             <div class="input-group">
-                <input type="text" class="form-control form-control-lg" placeholder="Keyword">
-                <div class="input-group-append">
-                    <span class="input-group-text bg-transparent text-primary"><i class="fa fa-search"></i></span>
-                </div>
+
+                <input type="text" name="search" value="{{request('search')}}" class="form-control form-control-lg" placeholder="Поиск"/>
+
+               <x-mini-button/>
+
             </div>
-        </form>
+
+        </x-form.index>
+
     </div>
 
     <!--Поисковик End-->
@@ -22,21 +27,22 @@
 
         <h3 class="mb-4">{{__('Категории')}}</h3>
 
-        <ul class="list-group">
+        <nav class="nav flex-column">
 
           @foreach($categories as $category)
 
-            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <x-link class="nav-link"  href="{{route('blog.index', ['category'=>$category->name])}}">
 
-                {{$category->name}}
+                    {{$category->name}}
 
-                <span class="badge badge-primary badge-pill">{{$category->articles->count()}}</span>
+                    <span class="badge badge-primary badge-pill">{{$category->articles->count()}}</span>
 
-            </li>
+                </x-link>
+
 
             @endforeach
 
-        </ul>
+        </nav>
 
     </div>
 

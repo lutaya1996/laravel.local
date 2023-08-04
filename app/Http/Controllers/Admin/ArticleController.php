@@ -28,9 +28,24 @@ class ArticleController extends Controller
         return  view('admin.articles.create', ['title'=>'Создаем статью']);
 
     }
-    public function store()
+    public function store(Request $request)
     {
-        return "store ppost";
+        $image = $request->input('image');
+
+        $title = $request->input('title');
+
+        $slug = $request->input('slug');
+
+        $content = $request->input('content');
+
+        $category = $request->input('category');
+
+        $author = $request->input('author');
+
+        $published_date = $request->input('published_date');
+
+        dd($request->all());
+
     }
     public function edit($slug)
     {
@@ -39,8 +54,23 @@ class ArticleController extends Controller
 
         return view('admin.articles.edit', ['article'=> $article, 'title'=>'Редактируем статью']);
     }
-    public function update($slug)
+    public function update(Request $request, $slug)
     {
+        $image = $request->input('image');
+
+        $title = $request->input('title');
+
+        $slug = $request->input('slug');
+
+        $content = $request->input('content');
+
+        $category = $request->input('category');
+
+        $author = $request->input('author');
+
+        $published_date = $request->input('published_date');
+
+        dd($request->all());
 
     }
     public function delete($article)

@@ -4,7 +4,7 @@
 
             )->merge(['href'=> $href,
 
-                                    ])}} >
+                       'style' => "font-size: large",         ])}} >
 
         {{$slot}}
 

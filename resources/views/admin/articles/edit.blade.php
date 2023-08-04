@@ -29,7 +29,7 @@
                     <div id="success">
 
 
-                    <x-form.index method="post" action="{{ route('admin.articles.update', $article->slug) }}">
+                    <x-form.index method="PUT" action="{{ route('admin.articles.update', $article->slug) }}">
 
                         <x-form.item>
 
@@ -81,13 +81,13 @@
 
                         <x-form.item>
 
-                            <x-form.label for="tag" class="mt-3">
+                            <x-form.label for="category" class="mt-3">
 
                                 {{__('Категория статьи')}}
 
                             </x-form.label>
 
-                            <x-form.input  id="tag" name="tag" :value="$article->category->name" />
+                            <x-form.input  id="category" name="category" :value="$article->category->name" />
 
                         </x-form.item>
 

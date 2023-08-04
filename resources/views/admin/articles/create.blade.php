@@ -32,7 +32,7 @@
                         <div id="success">
 
 
-                        <x-form method="post" action="{{ route('admin.articles.store') }}">
+                        <x-form method="POST" action="{{ route('admin.articles.store') }}">
 
                             <x-form.item>
 
@@ -84,13 +84,13 @@
 
                             <x-form.item>
 
-                                <x-form.label for="tag" class="mt-3">
+                                <x-form.label for="category" class="mt-3">
 
                                     {{__('Категория статьи')}}
 
                                 </x-form.label>
 
-                                <x-form.input  id="tag" name="tag" :value />
+                                <x-form.input  id="category" name="category" :value />
 
                             </x-form.item>
 

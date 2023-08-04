@@ -10,4 +10,11 @@ class LoginController
     {
         return view('login.index', ['title'=>'Login', 'request'=>$request]);
     }
+
+    public function store(Request $request)
+    {
+        $email = $request->input('email');
+
+        $password = $request->input('password');
+    }
 }
