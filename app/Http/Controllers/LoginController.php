@@ -13,6 +13,16 @@ class LoginController
 
     public function store(Request $request)
     {
+
+        $validated = validate($request->all(), [
+
+            'email' => ['required', 'string', 'email'],
+
+            'password' => ['required', 'string', 'min:5'],
+
+        ]);
+
+
         $email = $request->input('email');
 
         $password = $request->input('password');

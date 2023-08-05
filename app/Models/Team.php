@@ -9,6 +9,13 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
 class Team extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+
+    'name', 'position',
+
+    ];
+
     protected $with = ['image'];
 
     public function image(): MorphOne

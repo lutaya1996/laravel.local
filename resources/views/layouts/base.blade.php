@@ -17,7 +17,7 @@
 @include('includes.header')
 
 
-<x-alert type="success"/>
+<x-alert/>
 
 
 

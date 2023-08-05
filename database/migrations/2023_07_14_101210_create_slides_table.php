@@ -12,11 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('slides', function (Blueprint $table) {
+
             $table->id();
+
             $table->string('image_path');
+
             $table->string('first_head');
+
             $table->string('second_head');
+
             $table->boolean('show_on_first');
+
             $table->timestamps();
         });
     }

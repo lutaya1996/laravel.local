@@ -9,6 +9,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Tag extends Model
 {
     use HasFactory;
+
+    public $fillable = [
+
+        'name',
+
+    ];
+
     protected $with = ['articles'];
 
     public function articles(): BelongsToMany

@@ -30,9 +30,9 @@
 
                                                   placeholder="Ваш Email"
 
-                                                  data-validation-required-message="Пожалуйста, введите Ваш email"
-
                                                   autofocus/>
+
+                                        <x-error name="email"/>
 
                                 </x-form.item>
 
@@ -40,9 +40,9 @@
 
                                     <x-form.input type="password" name="password"
 
-                                                  placeholder="Пароль"
+                                                  placeholder="Пароль"/>
 
-                                                  data-validation-required-message="Пожалуйста, введите Ваш пароль"/>
+                                        <x-error name="password"/>
 
                                 </x-form.item>
 

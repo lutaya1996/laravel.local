@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menu', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('path');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+
+            $table->boolean('admin')->default(false)->after('active');
         });
     }
 
@@ -24,6 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menu');
+        Schema::table('users', function (Blueprint $table) {
+
+            $table->dropColumn('admin');
+        });
     }
 };

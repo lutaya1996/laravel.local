@@ -15,6 +15,34 @@ class Article extends Model
 
 //    protected $with = ['image', 'category', 'author', 'comments', 'tags' ];
 
+    protected $fillable = [
+
+        'slug', 'active',
+
+        'image_path', 'title',
+
+        'content', 'author_id',
+
+        'tags_id', 'published_at',
+
+        'admin',
+
+    ];
+
+    protected $casts = [
+
+        'active' => 'boolean',
+
+        'admin' => 'boolean',
+
+    ];
+
+    protected $dates = [
+
+        'published_at',
+
+    ];
+
 
     public function image(): MorphOne
     {

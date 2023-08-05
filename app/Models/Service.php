@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
+
+    protected $fillable = [
+
+        'icon_class','title',
+
+        'description',
+
+    ];
+
     use HasFactory;
 }

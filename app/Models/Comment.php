@@ -10,6 +10,14 @@ class Comment extends Model
 {
     use HasFactory;
 
+    public $fillable = [
+
+        'image_path', 'user_name',
+
+        'text',
+
+    ];
+
     protected $with = ['article', 'user'];
 
     public function article(): BelongsTo

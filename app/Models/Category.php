@@ -10,6 +10,12 @@ class Category extends Model
 {
     use HasFactory;
 
+    public $fillable = [
+
+        'name',
+
+    ];
+
     protected $with = ['articles'];
 
     public function articles(): HasMany

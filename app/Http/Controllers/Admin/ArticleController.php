@@ -30,6 +30,7 @@ class ArticleController extends Controller
     }
     public function store(Request $request)
     {
+
         $image = $request->input('image');
 
         $title = $request->input('title');

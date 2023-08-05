@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->string('title', 100)->change();
-            $table->string('name', 50)->change();
+        Schema::table('articles', function (Blueprint $table) {
+
+            $table->timestamp('published_at')->nullable();
+
         });
     }
 

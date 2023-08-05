@@ -11,6 +11,14 @@ class Author extends Model
 {
     use HasFactory;
 
+    public $fillable = [
+
+        'name', 'profession',
+
+        'articles_id',
+
+    ];
+
     protected $with = ['articles'];
 
     public function articles(): HasMany

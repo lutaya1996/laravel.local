@@ -1,6 +1,6 @@
 @if( $alert = session()->pull('alert'))
 
-<div class="alert alert-{{ $type }} text-center">
+<div class="alert alert-success text-center">
 
     {{ $alert }}
 

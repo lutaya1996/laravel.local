@@ -12,10 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comments', function (Blueprint $table) {
+
             $table->id();
+
             $table->string('image_path');
+
             $table->string('user_name');
+
             $table->text('text');
+
             $table->timestamps();
         });
     }
