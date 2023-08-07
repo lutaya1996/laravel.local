@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Category;
 use App\Models\Tag;
+use Carbon\Carbon;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
@@ -12,36 +14,59 @@ class BlogController
 {
     public function index(Request $request)
     {
-        $category = $request->input('category');
 
-        $search = $request->input('search');
+        $validated = $request->validate([
 
+            'search'=> [ 'nullable', 'string', 'max:50'],
 
-        if ($search) {
+            'category' => ['nullable', 'string', 'max:50'],
 
-            $articles = Article::cursor()->filter(function ($article) use ($search) {
+            'from_date' => ['nullable', 'string', 'max:20', 'date'],
 
-                return str_contains($article->content, $search);
+            'to_date' => ['nullable', 'string', 'max:20', 'date', 'after:from_date'],
 
-            });
+        ]);
 
-        } elseif ($category) {
+        $query = Article::query();
 
-            $articles = Article::cursor()->filter(function ($article) use ($category) {
+        if ($search = $validated['search'] ?? null) {
 
-                return $article->category->name == $category;
+            $query ->where('content', 'like', "%{$search}%")
 
-            });
-
-        } else {
-
-            $articles = Article::query()
-
-                                ->latest('published_at' )
-
-                                ->paginate(3);
+                                        ->paginate(6);
 
         }
+
+
+        if ($category = $validated['category'] ?? null) {
+
+            $query->where('content', 'like', "%{$category}%")
+
+                                        ->paginate(6);
+        }
+
+        if ($from_date = $validated['from_date'] ?? null) {
+
+            $query->where('published_at', '>=', new Carbon($from_date))
+
+                ->paginate(6);
+        }
+
+        if ($to_date = $validated['to_date'] ?? null) {
+
+            $query->where('published_at', '<=', new Carbon($to_date))
+
+                ->paginate(6);
+        }
+
+        $articles = $query
+
+                    ->where('active', true)
+
+                    ->latest('published_at' )
+
+                    ->paginate(6);
+
 
 
         return view('blog.index', ['articles' => $articles, 'title' => 'Наш блог', 'request' => $request]);

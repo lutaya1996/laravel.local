@@ -32,6 +32,12 @@
 
             <div class="row pb-3">
 
+                @if($articles->isEmpty())
+
+                    {{__('Нет ни одного поста')}}
+
+                @endif
+
                 @foreach ($articles as $article)
 
                     <x-card.index>

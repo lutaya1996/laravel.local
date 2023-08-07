@@ -9,19 +9,59 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::all();
+        $category = $request->input('category');
+
+        $search = $request->input('search');
+
+
+        if ($search) {
+
+            $articles = Article::query()
+
+                ->where('content', 'like', "%{$search}%")
+
+                ->paginate(6);
+
+        } elseif ($category) {
+
+            $articles = Article::query()
+
+                ->where('content', 'like', "%{$category}%")
+
+                ->paginate(6);
+        } else {
+
+            $articles = Article::query()
+
+                ->latest('published_at' )
+
+                ->paginate(6);
+
+        }
 
         return view('admin.articles.index', [ 'articles'=> $articles, 'title'=>'Мои статьи']);
     }
     public  function show($slug)
     {
-        $article = Article::query()
 
-                                ->where('slug', $slug)
+        $article = cache()->remember(
 
-                                ->firstOrFail();
+            key: "articles.{$slug}",
+
+            ttl: now()->addHour(),
+
+            callback: function () use ($slug)  {
+
+                        return  Article::query()
+
+                            ->where('slug', $slug)
+
+                            ->firstOrFail();
+                        }
+
+            );
 
         $author = $article->author;
 

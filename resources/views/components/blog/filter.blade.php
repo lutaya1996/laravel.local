@@ -33,10 +33,20 @@
 
             <input type="text" name="search" value="{{request('search')}}" class="form-control mr-sm-2" placeholder="Поиск"/>
 
-                            <x-mini-button/>
+            <input type="text" name="from_date" value="{{request('from_date')}}" class="form-control mr-sm-2" placeholder="Дата начала"/>
+
+            <input type="text" name="to_date" value="{{request('to_date')}}" class="form-control mr-sm-2" placeholder="Дата окончания"/>
+
+            <x-form.button type="submit " class="btn-sm mb-3 ml-3">
+
+                {{__('Применить')}}
+
+            </x-form.button>
 
         </x-form.index>
 
     </nav>
+
+
 
 </div>
