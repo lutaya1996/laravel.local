@@ -39,7 +39,7 @@
 
                             </x-form.label>
 
-                            <x-form.input id="image" name="image" :value="$article->image->path" />
+                            <x-form.input id="image" name="image" :value="$article->image->path ?? '' " />
 
                         </x-form.item>
 

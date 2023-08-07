@@ -44,7 +44,7 @@
 
                         <x-card.border class="mb-2">
 
-                            <x-card.img src="{{asset($article->image->path)}}"/>
+                            <x-card.img src="{{asset($article->image->path ?? '')}}"/>
 
                             <x-card.body class="bg-light p-4">
 

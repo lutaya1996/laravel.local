@@ -35,11 +35,12 @@
 
                 <div class="mb-5">
 
-                    <img class="img-fluid w-100 mb-4" src="{{asset($article->image->path)}}" alt="Image">
+                    <img class="img-fluid w-100 mb-4" src="{{asset($article->image->path ?? '')}}" alt="Image">
 
                     <p>{!! $article->content!!}</p>
 
                 </div>
+
 
                 <!-- Main Article End-->
 
@@ -48,7 +49,7 @@
 
                 <div class="media bg-light mb-5 p-4 p-md-5">
 
-                    <img src="{{$author->image->path}}" alt="Image" class="img-fluid mr-5 mt-1" style="width: 100px;">
+                    <img src="{{$author->image->path ?? ''}}" alt="Image" class="img-fluid mr-5 mt-1" style="width: 100px;">
 
                     <div class="media-body">
                         <h5 class="mb-3">{{$author->name}}</h5>
@@ -60,6 +61,19 @@
 
                 <!--Author of article End-->
 
+                <x-form.index method="delete" action="{{ route('admin.articles.delete', ['slug' => $article->slug]) }}">
+
+                    <div class="text-center">
+
+                        <x-form.button class="mb-3" type="submit">
+
+                            {{__('Удалить')}}
+
+                        </x-form.button>
+
+                    </div>
+
+                </x-form.index>
 
                 <!-- Comments Start -->
 

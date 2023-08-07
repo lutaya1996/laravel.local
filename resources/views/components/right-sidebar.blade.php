@@ -58,11 +58,11 @@
 
         <div class="d-flex align-items-center border-bottom mb-3 pb-3">
 
-            <img class="img-fluid" src="{{asset($article->image->path)}}" style="width: 80px; height: 80px;" alt="">
+            <img class="img-fluid" src="{{asset($article->image->path ?? '')}}" style="width: 80px; height: 80px;" alt="">
 
             <div class="d-flex flex-column pl-3">
 
-                <a class="text-dark mb-2" href=""> <b>{!! $article->title !!}</b><br>{!! mb_substr($article->content,0,70) . "..." !!}</a>
+                <a class="text-dark mb-2" href="{{request()->path}}{{$article->slug}}"> <b>{!! $article->title !!}</b><br>{!! mb_substr($article->content,0,70) . "..." !!}</a>
 
                 <div class="d-flex">
                     <small class="mr-3"><i class="fa fa-user text-muted"></i>{{$article->author->name}}</small>
@@ -78,7 +78,7 @@
 
         <div class="d-flex align-items-center border-bottom mb-3 pb-3">
 
-            <a class=" font-weight-bold mb-2" href="">
+            <a class=" font-weight-bold mb-2" href="{{ request()->path }}">
 
                 {{__('Читать все статьи')}}
 

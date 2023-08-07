@@ -138,25 +138,58 @@ class ArticleController extends Controller
     }
     public function update(Request $request, $slug)
     {
-        $image = $request->input('image');
 
-        $title = $request->input('title');
+        $validated = validate($request->all(), [
 
-        $slug = $request->input('slug');
+            'image' => ['nullable', 'string'],
 
-        $content = $request->input('content');
+            'active'=> ['nullable', 'boolean'],
 
-        $category = $request->input('category');
+            'slug'=> ['required', 'string', 'max:15'],
 
-        $author = $request->input('author');
+            'title'=> ['required', 'string', 'max:30'],
 
-        $published_date = $request->input('published_date');
+            'content'=> ['required', 'string'],
+
+            'author_id'=> ['nullable', 'integer', 'exists:authors'],
+
+            'category_id' => ['nullable', 'integer', 'exists:category,id'],
+
+            'tag_id' => ['nullable', 'integer', 'exists:tags,id'],
+
+            'published_at'=> ['nullable','string', 'date'],
+
+        ]);
+
+        $article = Article::query()->create([
+
+            'slug' => $validated['slug'],
+
+            'active' => $validated['active'] ?? false,
+
+            'title' => $validated['title'],
+
+            'content' => $validated['content'],
+
+            'author_id' => $validated['author_id'] ?? null,
+
+            'category_id' => $validated['category_id'] ?? null,
+
+            'tag_id' => $validated['tag_id'] ?? null,
+
+            'published_at' => new Carbon($validated['published_at'] ?? null),
+
+        ]);
+
+        $article->save();
 
         return redirect()->route('admin.articles.show', ['slug' => $slug]);
 
     }
-    public function delete($article)
+    public function delete(Request $request, $slug)
     {
+        Article::where('slug', $slug)->delete();
+
         return  redirect()->route('admin.articles');
     }
 
