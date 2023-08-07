@@ -80,9 +80,13 @@
 
             </div>
 
-
         </x-container>
 
+        <x-pagination>
+
+        {{$articles->links() }}
+
+        </x-pagination>
 
         <!-- Blog End -->
 

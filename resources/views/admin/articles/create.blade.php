@@ -36,13 +36,29 @@
 
                             <x-form.item>
 
+                                <x-form.label for="active" class="mt-3">
+
+                                    {{__('Показывать статью')}}
+
+                                </x-form.label>
+
+                                <x-checkbox />
+
+                                <x-error name="active"/>
+
+                            </x-form.item>
+
+                            <x-form.item>
+
                                 <x-form.label for="image" class="mt-3">
 
                                     {{__('Ссылка на картинку')}}
 
                                 </x-form.label>
 
-                                <x-form.input id="image" name="image" :value />
+                                <x-form.input id="image" name="image" />
+
+                                <x-error name="image"/>
 
                             </x-form.item>
 
@@ -54,7 +70,9 @@
 
                                 </x-form.label>
 
-                                <x-form.textarea  class="mb-3" rows="2" id="title" name="title"></x-form.textarea>
+                                <x-trix name="title"/>
+
+                                <x-error name="title"/>
 
                             </x-form.item>
 
@@ -66,7 +84,9 @@
 
                                 </x-form.label>
 
-                                <x-form.input id="slug" name="slug" :value />
+                                <x-form.input id="slug" name="slug" />
+
+                                <x-error name="slug"/>
 
                             </x-form.item>
 
@@ -80,6 +100,8 @@
 
                                 <x-trix name="content"/>
 
+                                <x-error name="content"/>
+
                             </x-form.item>
 
                             <x-form.item>
@@ -90,7 +112,23 @@
 
                                 </x-form.label>
 
-                                <x-form.input  id="category" name="category" :value />
+                                <x-form.input  id="category" name="category"  />
+
+                                <x-error name="category"/>
+
+                            </x-form.item>
+
+                            <x-form.item>
+
+                                <x-form.label for="tag" class="mt-3">
+
+                                    {{__('Тег статьи')}}
+
+                                </x-form.label>
+
+                                <x-form.input  id="tag" name="tag" />
+
+                                <x-error name="tag"/>
 
                             </x-form.item>
 
@@ -102,19 +140,25 @@
 
                                 </x-form.label>
 
-                                <x-form.input id="author" name="author" :value />
+                                <x-form.input id="author" name="author" />
+
+                                <x-error name="author"/>
 
                             </x-form.item>
 
                             <x-form.item>
 
-                                <x-form.label for="published_date" class="mt-3">
+                                <x-form.label for="published_at" class="mt-3">
 
                                     {{__('Дата публикации статьи')}}
 
                                 </x-form.label>
 
-                                <x-form.input   id="published_date" name="published_date" :value/>
+                                <x-form.input   id="published_at" name="published_at"
+
+                                placeholder="dd.mm.yyyy"/>
+
+                                <x-error name="published_at"/>
 
                             </x-form.item>
 

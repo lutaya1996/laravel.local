@@ -30,6 +30,6 @@ class AppServiceProvider extends ServiceProvider
             'testimonial' => 'App\Models\Testimonial',
         ]);
 
-        Paginator::useBootstrap();
+        Paginator::useBootstrapFive();
     }
 }

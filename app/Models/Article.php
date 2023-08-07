@@ -19,29 +19,23 @@ class Article extends Model
 
         'slug', 'active',
 
-        'image_path', 'title',
+        'title', 'content',
 
-        'content', 'author_id',
+        'author_id', 'category_id', 'tag_id',
 
-        'tags_id', 'published_at',
-
-        'admin',
+        'published_at',
 
     ];
+
 
     protected $casts = [
 
         'active' => 'boolean',
 
-        'admin' => 'boolean',
+        'published_at' => 'datetime',
 
     ];
 
-    protected $dates = [
-
-        'published_at',
-
-    ];
 
 
     public function image(): MorphOne

@@ -16,18 +16,18 @@ class LoginController
 
         $validated = validate($request->all(), [
 
-            'email' => ['required', 'string', 'email'],
+            'email' => ['required', 'string', 'email', 'exists:users'],
 
             'password' => ['required', 'string', 'min:5'],
 
         ]);
 
 
-        $email = $request->input('email');
+        if($validated) {
 
-        $password = $request->input('password');
+            alert("Добро пожаловать");
 
-        alert("Добро пожаловать");
+        }
 
        return redirect()->route('admin.articles');
 

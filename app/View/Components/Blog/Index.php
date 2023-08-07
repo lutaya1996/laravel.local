@@ -22,7 +22,7 @@ class Index extends Component
      */
     public function render(): View|Closure|string
     {
-        $articles = Article::orderBy('id', 'desc')->limit(3)->get();
+        $articles = Article::query()->orderBy('id', 'desc')->limit(3)->get();
 
         return view('components.blog.index',['articles' => $articles, ]);
     }

@@ -28,7 +28,12 @@ class Sidebar extends Component
 
         $categories = Category::all();
 
-        $articles = Article::all();
+        $articles = Article::query()
+
+                                ->latest('published_at' )
+
+                                ->paginate(6);
+
 
         return view('components.right-sidebar', ['tags'=>$tags, 'categories'=> $categories, 'articles'=>$articles]);
     }

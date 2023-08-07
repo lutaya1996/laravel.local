@@ -34,7 +34,13 @@ class BlogController
             });
 
         } else {
-            $articles = Article::all()->sortDesc();
+
+            $articles = Article::query()
+
+                                ->latest('published_at' )
+
+                                ->paginate(3);
+
         }
 
 
@@ -43,11 +49,27 @@ class BlogController
 
     public function show($slug)
     {
-        $article = Article::where('slug', $slug)->first();
+
+        $article = Article::query()
+
+                                ->where('slug', $slug)
+
+                                ->firstOrFail();
+
+
+        if(is_null($article))  {
+
+            abort(404);
+
+        }
+
         $author = $article->author;
 
 
-        return view('blog.show', ['article' => $article, 'title' => 'Читаем статью', 'author' => $author,
+        return view('blog.show', ['article' => $article,
+
+            'title' => 'Читаем статью', 'author' => $author,
+
         ]);
 
     }

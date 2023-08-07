@@ -30,25 +30,25 @@
 
                                 <x-form.index name="register" method="post" action="{{route('register.store')}}">
 
-                                    <div class="control-group">
+                                    <x-form.item>
 
                                         <x-form.label for="name" class="required">{{__('Ваше имя')}}</x-form.label>
 
                                         <x-form.input type="name"  name="name"
 
-                                               data-validation-required-message="Пожалуйста, введите Ваше имя"
-
                                                autofocus/>
 
-                                    </div>
+                                        <x-error name="name"/>
+
+                                    </x-form.item>
 
                                     <x-form.item>
 
                                         <x-form.label for="email" class="required">{{__('Ваш Email')}}</x-form.label>
 
-                                        <x-form.input type="email"  name="email"
+                                        <x-form.input type="email"  name="email"/>
 
-                                               data-validation-required-message="Пожалуйста, введите Ваш email"/>
+                                        <x-error name="email"/>
 
                                     </x-form.item>
 
@@ -56,19 +56,19 @@
 
                                         <x-form.label for="password" class="required">{{__('Пароль')}}</x-form.label>
 
-                                        <x-form.input type="password"  name="password"
+                                        <x-form.input type="password"  name="password"/>
 
-                                               data-validation-required-message="Пожалуйста, введите Ваш пароль"/>
+                                        <x-error name="password"/>
 
                                     </x-form.item>
 
                                     <x-form.item>
 
-                                        <x-form.label for="confirm" class="required">{{__('Подтвердите пароль')}}</x-form.label>
+                                        <x-form.label for="password_confirmation" class="required">{{__('Подтвердите пароль')}}</x-form.label>
 
-                                        <x-form.input type="password"  name="confirm"
+                                        <x-form.input type="password"  name="password_confirmation"/>
 
-                                               data-validation-required-message="Пожалуйста, введите Ваш пароль"/>
+                                        <x-error name="password_confirmation"/>
 
                                     </x-form.item>
 

@@ -1,7 +1,7 @@
 @props(['name' => '', 'value' => ''])
 
 
-<input id="{{ $name }}" type="hidden" name="{{ $name }}" value="{!! $value !!}">
+<input id="{{ $name }}" type="hidden" name="{{ $name }}" value="{!! old($name, $value) !!}">
 
 <trix-editor input="{{ $name }}" ></trix-editor>
 

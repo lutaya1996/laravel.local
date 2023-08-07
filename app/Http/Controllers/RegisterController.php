@@ -1,26 +1,43 @@
 <?php
+
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RegisterController
 {
     public function index(Request $request)
     {
-        return view('register.index', ['title'=>'Регистрация', 'request'=>$request]);
+        return view('register.index', ['title' => 'Регистрация', 'request' => $request]);
     }
 
     public function store(Request $request)
     {
-        $name = $request->input('name');
 
-        $email = $request->input('email');
+        $validated = validate($request->all(), [
 
-        $password = $request->input('password');
+            'name' => ['required', 'string', 'max:50'],
 
-        $confirm = $request->input('confirm');
+            'email' => ['required', 'string', 'max:50', 'email', 'unique:users'],
 
-        return redirect()->route('admin.articles');
+            'password' => ['required', 'string', 'min:5', 'max:50', 'confirmed'],
+
+        ]);
+
+        $user = User::query()->create([
+
+            'name' => $validated['name'],
+
+            'email' => $validated['email'],
+
+            'password' => bcrypt($validated['password']),
+
+    ]);
+
+        $user->save();
+
+        return redirect()->route('blog.index');
     }
 
 }

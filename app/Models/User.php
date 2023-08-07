@@ -21,6 +21,10 @@ class User extends Authenticatable
 
         'name', 'email',
 
+        'active', 'admin',
+
+        'avatar',
+
         'password',
 
     ];
@@ -35,6 +39,14 @@ class User extends Authenticatable
         'password',
 
         'remember_token',
+    ];
+
+    protected $attributes = [
+
+        'active' => true,
+
+        'admin' => false,
+
     ];
 
     /**
