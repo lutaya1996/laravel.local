@@ -40,7 +40,11 @@ class BlogController
 
         if ($category = $validated['category'] ?? null) {
 
-            $query->where('content', 'like', "%{$category}%")
+            $query ->join('categories', 'category_id', '=', 'categories.id')
+
+                ->select('articles.*', 'title', 'content', 'slug','published_at')
+
+                ->where('categories.name', 'like', "%{$category}%")
 
                                         ->paginate(6);
         }

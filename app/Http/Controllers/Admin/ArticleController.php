@@ -11,35 +11,60 @@ class ArticleController extends Controller
 {
     public function index(Request $request)
     {
-        $category = $request->input('category');
+        $validated = $request->validate([
 
-        $search = $request->input('search');
+            'search'=> [ 'nullable', 'string', 'max:50'],
 
+            'category' => ['nullable', 'string', 'max:50'],
 
-        if ($search) {
+            'from_date' => ['nullable', 'string', 'max:20', 'date'],
 
-            $articles = Article::query()
+            'to_date' => ['nullable', 'string', 'max:20', 'date', 'after:from_date'],
 
-                ->where('content', 'like', "%{$search}%")
+        ]);
 
-                ->paginate(6);
+        $query = Article::query();
 
-        } elseif ($category) {
+        if ($search = $validated['search'] ?? null) {
 
-            $articles = Article::query()
-
-                ->where('content', 'like', "%{$category}%")
-
-                ->paginate(6);
-        } else {
-
-            $articles = Article::query()
-
-                ->latest('published_at' )
+            $query ->where('content', 'like', "%{$search}%")
 
                 ->paginate(6);
 
         }
+
+
+        if ($category = $validated['category'] ?? null) {
+
+            $query ->join('categories', 'category_id', '=', 'categories.id')
+
+                ->select('articles.*', 'title', 'content', 'slug','published_at')
+
+                ->where('categories.name', 'like', "%{$category}%")
+
+                ->paginate(6);
+        }
+
+        if ($from_date = $validated['from_date'] ?? null) {
+
+            $query->where('published_at', '>=', new Carbon($from_date))
+
+                ->paginate(6);
+        }
+
+        if ($to_date = $validated['to_date'] ?? null) {
+
+            $query->where('published_at', '<=', new Carbon($to_date))
+
+                ->paginate(6);
+        }
+
+        $articles = $query
+
+            ->latest('published_at' )
+
+            ->paginate(6);
+
 
         return view('admin.articles.index', [ 'articles'=> $articles, 'title'=>'Мои статьи']);
     }

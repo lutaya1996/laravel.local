@@ -35,6 +35,12 @@
 
             </x-title>
 
+            <div class="row">
+
+                <x-blog.filter />
+
+            </div>
+
 
             <div class="row pb-3">
 
