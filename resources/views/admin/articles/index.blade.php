@@ -98,6 +98,12 @@
 
             </div>
 
+            <x-pagination>
+
+                {{$articles->links()}}
+
+            </x-pagination>
+
         </x-container>
 
 

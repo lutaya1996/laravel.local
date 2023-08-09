@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Image;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -143,9 +144,25 @@ class ArticleController extends Controller
 
         ]);
 
-        $article->save();
+//        $article->save();
 
-        $slug = $validated['slug'];
+        $slug = $article->slug;
+
+        $image = Image::query()->create([
+
+            'path' => "{$validated['image']}",
+
+            'imageable_type' => 'article',
+
+            'imageable_id' => "{$article->id}",
+
+            'alt' => 'img',
+
+        ]);
+
+        $image->save();
+
+        dd($image);
 
         return redirect()->route('admin.articles.show', ['slug' => $slug]);
 
