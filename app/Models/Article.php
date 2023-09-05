@@ -13,7 +13,6 @@ class Article extends Model
 {
     use HasFactory;
 
-//    protected $with = ['image', 'category', 'author', 'comments', 'tags' ];
 
     protected $fillable = [
 
