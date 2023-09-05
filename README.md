@@ -74,4 +74,4 @@ laravel.local для запуска приложения.
 ## **Скриншоты**
 
 ---
-![IMG](https://github.com/lutaya1996/laravel.local/raw/main/public/img/PetLover.png)
+![IMG](https://github.com/lutaya1996/laravel.local/raw/master/public/img/PetLover.png)
